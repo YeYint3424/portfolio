@@ -1,4 +1,5 @@
 "use client";
+import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import Snow from "@/components/Snow";
@@ -136,10 +137,7 @@ export default function About() {
             </div>
           </section>
         </div>
-        <footer className="text-center py-8 text-frost/25 text-xs border-t border-sky/8">
-          Crafted by <span className="text-sky">Ye Yint Myint Myat</span> ·
-          Frontend Developer · Yangon, Myanmar · 2025
-        </footer>
+        <Footer />
       </div>
     </>
   );
