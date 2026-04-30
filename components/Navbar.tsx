@@ -1,13 +1,11 @@
 "use client";
 
+import Link from "next/link";
 import { useState, useEffect } from "react";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#skills", label: "Skills" },
-  { href: "#projects", label: "Projects" },
-  { href: "#certifications", label: "Certs" },
-  { href: "#contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/projects", label: "Projects" },
 ];
 
 export default function Navbar() {
@@ -27,18 +25,21 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <span className="font-syne font-extrabold text-base tracking-tight bg-gradient-to-r from-white to-sky bg-clip-text text-transparent select-none">
+      <Link
+        href="/"
+        className="font-sans font-extrabold text-base tracking-tight bg-gradient-to-r from-white to-sky bg-clip-text text-transparent select-none"
+      >
         YYММ
-      </span>
+      </Link>
       <div className="hidden sm:flex gap-7">
         {links.map((l) => (
-          <a
+          <Link
             key={l.href}
             href={l.href}
             className="text-ice/70 hover:text-sky text-sm font-medium tracking-wide transition-colors duration-200"
           >
             {l.label}
-          </a>
+          </Link>
         ))}
       </div>
     </nav>

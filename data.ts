@@ -53,7 +53,6 @@ export const data = {
   projects: [
     {
       title: "Insurance System — AXURANCE (D3-SG)",
-      icon: "🛡️",
       period: "Jan 2025 – Present",
       desc: "Designed and developed a responsive mobile-first UI based on Figma prototypes. Integrated APIs for real-time data, ensured smooth UX with performance optimization, collaborated with backend developers on API requirements, and conducted cross-device compatibility testing.",
       tools: [
@@ -69,7 +68,6 @@ export const data = {
     },
     {
       title: "Insurance System — AQME (Ace Data Systems)",
-      icon: "🏢",
       period: "Jan 2024 – Nov 2024",
       desc: "Joined an ongoing project in January 2024. Built a mobile-first responsive UI from Figma designs, integrated real-time API calls, optimized UI components for performance and accessibility, and ensured seamless experience across mobile devices.",
       tools: [
@@ -88,7 +86,6 @@ export const data = {
     },
     {
       title: "Job Recruitment & Offering System — JROMS",
-      icon: "💼",
       period: "Jul – Aug",
       desc: "Built by Team Hundred Percent, focused on UX and highly responsive UI. Multi-role platform with Candidates, Junior-HR, Senior-HR, Admin, Default-Admin, Interviewer, and Department-Head, each with granular access to vacancies, interviews, offers, and reports.",
       tools: [
@@ -105,7 +102,6 @@ export const data = {
     },
     {
       title: "Students Management System",
-      icon: "🎓",
       period: "Jun 03 – Jun 30",
       desc: "Designed 100% of the UI for a fully responsive system working on both laptop and mobile. Users can browse and register for courses; admins manage enrollments, users, and can elevate user roles with full admin privileges.",
       tools: [
@@ -121,7 +117,6 @@ export const data = {
     },
     {
       title: "Entrance-X — Event Ticket Platform",
-      icon: "🎟️",
       period: "Mar 25 – Apr 29",
       desc: "Led 80% of UI and 90% of frontend for this event ticketing platform (Team God-X). Users search events, buy tickets online, receive QR-coded tickets on admin approval. Organizers manage events with QR payment integration; admins oversee all accounts.",
       tools: [
@@ -144,7 +139,7 @@ export const data = {
       org: "ACE Inspiration",
     },
     { icon: "☕", name: "Java Web Development", org: "ACE Inspiration" },
-    { icon: "🏋️", name: "On Job Training", org: "ACE Inspiration" },
+    { icon: "☕", name: "On Job Training — Java", org: "ACE Inspiration" },
     { icon: "⚛️", name: "On Job Training — React JS", org: "Ace Data Systems" },
   ],
 };

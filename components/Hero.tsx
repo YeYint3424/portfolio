@@ -24,11 +24,13 @@ export default function Hero() {
         </div>
 
         {/* Name */}
-        <h1 className="hero-anim-2 font-syne font-extrabold leading-none tracking-tight mb-4"
-          style={{ fontSize: "clamp(2.2rem, 6vw, 4.2rem)" }}>
+        <h1
+          className="hero-anim-2 font-sans font-extrabold leading-none tracking-tight mb-4"
+          style={{ fontSize: "clamp(2.2rem, 6vw, 4.2rem)" }}
+        >
           <span className="shimmer-text">{data.name}</span>
           <span
-            className="block mt-2 font-syne font-semibold text-ice/40 tracking-normal"
+            className="block mt-2 font-sans font-semibold text-ice/40 tracking-normal"
             style={{ fontSize: "clamp(0.85rem, 2vw, 1.1rem)" }}
           >
             {data.role}

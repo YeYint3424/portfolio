@@ -18,7 +18,7 @@ export default function Contact() {
         </Reveal>
         <Reveal delay={100}>
           <h2
-            className="font-syne font-extrabold text-white tracking-tight mb-10"
+            className="font-sans font-extrabold text-white tracking-tight mb-10"
             style={{ fontSize: "clamp(1.6rem, 4vw, 2.4rem)" }}
           >
             Contact
