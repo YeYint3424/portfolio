@@ -1,0 +1,86 @@
+export const data = {
+  name: "Ye Yint Myint Myat",
+  role: "Frontend Developer · UI/UX Enthusiast",
+  email: "yagamizee@gmail.com",
+  phone: "+959 985 203 053",
+  address: "No.1262, Shwe Pyi Thar (1)St., 32 Ward, Yangon",
+  objective:
+    "Passionate about crafting exceptional user experiences with React and Next.js. I build responsive, performant, and visually stunning interfaces — from Figma prototypes to pixel-perfect production code.",
+
+  skills: [
+    {
+      label: "⚡ Languages",
+      tags: ["Java", "JavaScript", "TypeScript"],
+    },
+    {
+      label: "🎨 Frontend",
+      tags: ["HTML", "CSS", "React.js", "Next.js", "Tailwind CSS", "Bootstrap", "JQuery", "JSP"],
+    },
+    {
+      label: "🔧 Backend",
+      tags: ["Node.js", "Express.js", "Servlet", "Java"],
+    },
+    {
+      label: "🏗️ Frameworks",
+      tags: ["Spring Boot", "Spring Data JPA", "Zustand", "Redux Toolkit", "Thymeleaf", "JUnit"],
+    },
+    {
+      label: "🗄️ Database & Infra",
+      tags: ["MySQL", "MongoDB", "PostgreSQL", "Redis", "Docker", "Strapi"],
+    },
+    {
+      label: "🛠️ Tools",
+      tags: ["Figma", "Postman", "VS Code", "IntelliJ", "Eclipse"],
+    },
+  ],
+
+  projects: [
+    {
+      title: "Insurance System — AXURANCE (D3-SG)",
+      icon: "🛡️",
+      period: "Jan 2025 – Present",
+      desc: "Designed and developed a responsive mobile-first UI based on Figma prototypes. Integrated APIs for real-time data, ensured smooth UX with performance optimization, collaborated with backend developers on API requirements, and conducted cross-device compatibility testing.",
+      tools: ["Next.js", "Node.js", "Express.js", "Zustand", "TypeScript", "PostgreSQL", "Tailwind CSS"],
+      link: null,
+    },
+    {
+      title: "Insurance System — AQME (Ace Data Systems)",
+      icon: "🏢",
+      period: "Jan 2024 – Nov 2024",
+      desc: "Joined an ongoing project in January 2024. Built a mobile-first responsive UI from Figma designs, integrated real-time API calls, optimized UI components for performance and accessibility, and ensured seamless experience across mobile devices.",
+      tools: ["Next.js", "Node.js", "Express.js", "Zustand", "TypeScript", "Redis", "Docker", "PostgreSQL", "Strapi", "Tailwind CSS"],
+      link: "https://fe.2d.r2.member.dev.d3lab.co/",
+    },
+    {
+      title: "Job Recruitment & Offering System — JROMS",
+      icon: "💼",
+      period: "Jul – Aug",
+      desc: "Built by Team Hundred Percent, focused on UX and highly responsive UI. Multi-role platform with Candidates, Junior-HR, Senior-HR, Admin, Default-Admin, Interviewer, and Department-Head, each with granular access to vacancies, interviews, offers, and reports.",
+      tools: ["Spring Boot", "Spring Data JPA", "Java", "jQuery", "Thymeleaf", "Bootstrap", "JUnit", "Jasper Report"],
+      link: null,
+    },
+    {
+      title: "Students Management System",
+      icon: "🎓",
+      period: "Jun 03 – Jun 30",
+      desc: "Designed 100% of the UI for a fully responsive system working on both laptop and mobile. Users can browse and register for courses; admins manage enrollments, users, and can elevate user roles with full admin privileges.",
+      tools: ["Spring Boot", "JPA Repository", "Java", "Thymeleaf", "Bootstrap", "JUnit", "Jasper Report"],
+      link: null,
+    },
+    {
+      title: "Entrance-X — Event Ticket Platform",
+      icon: "🎟️",
+      period: "Mar 25 – Apr 29",
+      desc: "Led 80% of UI and 90% of frontend for this event ticketing platform (Team God-X). Users search events, buy tickets online, receive QR-coded tickets on admin approval. Organizers manage events with QR payment integration; admins oversee all accounts.",
+      tools: ["Spring Boot", "JPA Repository", "Java", "HTML/CSS", "JavaScript", "Thymeleaf", "Bootstrap"],
+      link: null,
+    },
+  ],
+
+  certifications: [
+    { icon: "📘", name: "Programming Fundamental Course", org: "ACE Inspiration" },
+    { icon: "☕", name: "Java Web Development", org: "ACE Inspiration" },
+    { icon: "🏋️", name: "On Job Training", org: "ACE Inspiration" },
+    { icon: "⚛️", name: "On Job Training — React JS", org: "Ace Data Systems" },
+  ],
+};
