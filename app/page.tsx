@@ -5,6 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -70,11 +71,7 @@ export default function Home() {
         <div className="ice-divider" />
         <Contact />
 
-        <footer className="text-center py-8 text-frost/25 text-xs border-t border-sky/8">
-          Crafted by{" "}
-          <span className="text-sky">Ye Yint Myint Myat</span> · Frontend
-          Developer · Yangon, Myanmar · 2025
-        </footer>
+        <Footer />
       </div>
     </>
   );

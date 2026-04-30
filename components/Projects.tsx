@@ -1,5 +1,6 @@
 import { data } from "@/data";
 import Reveal from "./Reveal";
+import Link from "next/link";
 
 export default function Projects({ page }: { page: string }) {
   return (
@@ -85,28 +86,30 @@ export default function Projects({ page }: { page: string }) {
                       ))}
                     </div>
                     {p.link && (
-                      <a
+                      <Link
                         href={p.link}
                         target="_blank"
                         rel="noreferrer"
                         className="inline-block mt-4 text-sky text-xs border-b border-sky/30 hover:border-sky transition-colors duration-200"
                       >
                         🔗 View Application →
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </Reveal>
               ))}
         </div>
         {page !== "projects" && (
-          <div className="text-center mt-10">
-            <a
-              href="/projects"
-              className="inline-block text-sm text-sky border border-sky/30 rounded px-4 py-2 hover:bg-sky/10 transition-colors duration-200"
-            >
-              View All Projects →
-            </a>
-          </div>
+          <Reveal delay={500}>
+            <div className="text-center mt-10">
+              <a
+                href="/projects"
+                className="inline-block text-sm text-sky border border-sky/30 rounded px-4 py-2 hover:bg-sky/10 transition-colors duration-200"
+              >
+                View All Projects →
+              </a>
+            </div>
+          </Reveal>
         )}
       </div>
     </section>

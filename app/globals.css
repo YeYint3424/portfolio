@@ -199,3 +199,9 @@ body::before {
   max-width: 900px;
   margin: 0 auto;
 }
+.ice-divider-footer {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky), transparent);
+  opacity: 0.8;
+  margin: 0 auto;
+}

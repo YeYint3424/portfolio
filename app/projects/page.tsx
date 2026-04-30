@@ -2,6 +2,7 @@
 import Snow from "@/components/Snow";
 import Navbar from "@/components/Navbar";
 import Projects from "@/components/Projects";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -56,10 +57,7 @@ export default function Home() {
 
         <Projects page="projects" />
 
-        <footer className="text-center py-8 text-frost/25 text-xs border-t border-sky/8">
-          Crafted by <span className="text-sky">Ye Yint Myint Myat</span> ·
-          Frontend Developer · Yangon, Myanmar · 2025
-        </footer>
+        <Footer />
       </div>
     </>
   );
