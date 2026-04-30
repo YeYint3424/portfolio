@@ -31,7 +31,7 @@ export default function Navbar() {
       >
         YYММ
       </Link>
-      <div className="hidden sm:flex gap-7">
+      <div className="flex gap-7">
         {links.map((l) => (
           <Link
             key={l.href}
