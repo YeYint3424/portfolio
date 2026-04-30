@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --frost: #e0f2fe;
+  --ice: #bae6fd;
+  --sky: #38bdf8;
+  --azure: #0ea5e9;
+  --deep: #0369a1;
+  --abyss: #082f49;
+  --midnight: #061827;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--midnight);
+  color: var(--frost);
+  overflow-x: hidden;
+}
+
+/* Noise grain overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.5;
+}
+
+/* Shimmer text */
+.shimmer-text {
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    var(--sky) 30%,
+    #fff 50%,
+    var(--ice) 70%,
+    #fff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 4s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays */
+.delay-100 {
+  transition-delay: 0.1s;
+}
+.delay-200 {
+  transition-delay: 0.2s;
+}
+.delay-300 {
+  transition-delay: 0.3s;
+}
+.delay-400 {
+  transition-delay: 0.4s;
+}
+.delay-500 {
+  transition-delay: 0.5s;
+}
+
+/* Avatar rotating border */
+.avatar-glow {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--azure),
+    var(--sky),
+    var(--frost),
+    var(--azure)
+  );
+  animation: rotateBorder 5s linear infinite;
+  opacity: 0.75;
+}
+@keyframes rotateBorder {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Float animation */
+.float-anim {
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* Dot pulse */
+.dot-pulse {
+  animation: dotPulse 2s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.8);
+  }
+}
+
+/* Hero fade in */
+.hero-anim-1 {
+  animation: fadeDown 0.6s 0s ease both;
+}
+.hero-anim-2 {
+  animation: fadeDown 0.7s 0.1s ease both;
+}
+.hero-anim-3 {
+  animation: fadeDown 0.7s 0.2s ease both;
+}
+.hero-anim-4 {
+  animation: fadeDown 0.7s 0.3s ease both;
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-18px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Project card left slide */
+.project-card {
+  transition:
+    border-color 0.3s,
+    transform 0.3s,
+    box-shadow 0.3s;
+}
+.project-card:hover {
+  border-color: rgba(56, 189, 248, 0.3) !important;
+  transform: translateX(6px);
+}
+.project-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--azure), var(--sky), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.project-card:hover::before {
+  opacity: 1;
+}
+
+/* Ice divider */
+.ice-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--sky), transparent);
+  opacity: 0.15;
+  max-width: 900px;
+  margin: 0 auto;
+}
