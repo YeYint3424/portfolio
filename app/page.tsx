@@ -62,7 +62,7 @@ export default function Home() {
         <Skills />
 
         <div className="ice-divider" />
-        <Projects />
+        <Projects page="" />
 
         <div className="ice-divider" />
         <Certifications />
