@@ -2,8 +2,8 @@ export const data = {
   name: "Ye Yint Myint Myat",
   role: "Frontend Developer · UI/UX Enthusiast",
   email: "yagamizee@gmail.com",
-  phone: "+959 985 203 053",
-  address: "No.1262, Shwe Pyi Thar (1)St., 32 Ward, Yangon",
+  phone: "+959 900 000 000",
+  address: "------------------------------",
   objective:
     "Passionate about crafting exceptional user experiences with React and Next.js. I build responsive, performant, and visually stunning interfaces — from Figma prototypes to pixel-perfect production code.",
 
