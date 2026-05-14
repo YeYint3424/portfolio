@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, DM_Sans } from "next/font/google";
+import { GoogleTagManager } from "@next/third-parties/google";
 import "./globals.css";
 
 const syne = Syne({
@@ -28,6 +29,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${syne.variable} ${dm.variable}`}>
       <body className="font-dm antialiased">{children}</body>
+
+      <GoogleTagManager gtmId="GTM-56398SFN" />
     </html>
   );
 }

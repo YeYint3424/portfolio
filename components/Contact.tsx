@@ -116,19 +116,6 @@ export default function Contact() {
                 className={`${inputClass} resize-none`}
               />
             </div>
-
-            {/* Status messages */}
-            {status === "success" && (
-              <p className="text-emerald-400 text-sm font-medium flex items-center gap-2">
-                <span>✅</span> Message sent! I&apos;ll get back to you soon.
-              </p>
-            )}
-            {status === "error" && (
-              <p className="text-red-400 text-sm font-medium flex items-center gap-2">
-                <span>❌</span> Something went wrong. Please try again.
-              </p>
-            )}
-
             <button
               type="submit"
               disabled={status === "sending"}
@@ -161,6 +148,17 @@ export default function Contact() {
                 <>Send Message </>
               )}
             </button>
+            {/* Status messages */}
+            {status === "success" && (
+              <p className="text-emerald-400 text-sm font-medium flex items-center gap-2">
+                <span>✅</span> Message sent! I&apos;ll get back to you soon.
+              </p>
+            )}
+            {status === "error" && (
+              <p className="text-red-400 text-sm font-medium flex items-center gap-2">
+                <span>❌</span> Something went wrong. Please try again.
+              </p>
+            )}
           </form>
         </Reveal>
       </div>
