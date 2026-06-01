@@ -57,7 +57,9 @@ export default function Home() {
       {/* Actual content sits above z-index 2 */}
       <div className="relative" style={{ zIndex: 2 }}>
         <Navbar />
-        <Hero />
+        <div className="relative px-6">
+          <Hero />
+        </div>
 
         <div className="ice-divider" />
         <Skills />
