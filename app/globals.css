@@ -92,7 +92,7 @@ body::before {
 /* Avatar rotating border */
 .avatar-glow {
   position: absolute;
-  inset: -8px;
+  inset: -2px;
   border-radius: 50%;
   background: conic-gradient(
     from 0deg,

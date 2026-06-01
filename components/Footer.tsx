@@ -50,17 +50,17 @@ const GithubIcon = ({ size = 20 }: { size?: number }) => (
 const socialLinks = [
   {
     label: "Facebook",
-    href: "https://facebook.com/",
+    href: "https://www.facebook.com/ye.yint.myint.myat.934336",
     icon: <FacebookIcon size={18} />,
   },
   {
     label: "Instagram",
-    href: "https://instagram.com/",
+    href: "https://www.instagram.com/cznn_202/",
     icon: <InstagramIcon size={18} />,
   },
   {
     label: "GitHub",
-    href: "https://github.com/",
+    href: "https://github.com/YeYint3424",
     icon: <GithubIcon size={18} />,
   },
 ];

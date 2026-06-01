@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 export default function Certifications() {
   return (
     <section id="certifications" className="relative px-6 py-24">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Reveal>
           <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
             Education
@@ -27,7 +27,9 @@ export default function Certifications() {
                   {c.icon}
                 </div>
                 <div>
-                  <p className="text-frost text-sm font-medium leading-snug">{c.name}</p>
+                  <p className="text-frost text-sm font-medium leading-snug">
+                    {c.name}
+                  </p>
                   <p className="text-sky text-xs mt-0.5">{c.org}</p>
                 </div>
               </div>

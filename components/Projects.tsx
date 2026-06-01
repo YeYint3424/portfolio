@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Projects({ page }: { page: string }) {
   return (
     <section id="projects" className="relative px-6 py-24">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Reveal>
           <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
             Work &amp; Experience
