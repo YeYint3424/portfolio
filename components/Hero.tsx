@@ -1,6 +1,6 @@
 import { data } from "@/data";
 import Image from "next/image";
-import profile from "@/assets/imgs/yeyintmyintmyat-business-profile.png";
+import profile from "@/assets/imgs/yeyint-light.jpg";
 import Link from "next/link";
 import Reveal from "./Reveal";
 
