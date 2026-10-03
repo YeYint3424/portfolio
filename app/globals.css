@@ -205,3 +205,103 @@ body::before {
   opacity: 0.8;
   margin: 0 auto;
 }
+
+/* Glass surface — premium translucent panel used by journey/project cards */
+.glass-panel {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.015)
+  );
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(186, 230, 253, 0.1);
+}
+
+/* Metallic border — thin brushed-steel accent line */
+.metallic-border {
+  border-image: linear-gradient(
+      120deg,
+      rgba(186, 230, 253, 0.05),
+      rgba(186, 230, 253, 0.45),
+      rgba(186, 230, 253, 0.05)
+    )
+    1;
+}
+
+/* Timeline progress line + dots — positioning (top/left) is applied via Tailwind utilities on the element */
+.timeline-track {
+  width: 1px;
+  background: rgba(186, 230, 253, 0.12);
+}
+.timeline-progress {
+  width: 1px;
+  background: linear-gradient(180deg, var(--sky), var(--azure));
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.6);
+  transform-origin: top;
+}
+.timeline-dot {
+  border-radius: 50%;
+  background: var(--midnight);
+  border: 1px solid rgba(186, 230, 253, 0.3);
+  transition:
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+.timeline-dot.active {
+  border-color: var(--sky);
+  background: var(--sky);
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.75);
+}
+
+/* Stacking project cards — depth shadow as a card recedes behind the next */
+.stack-card {
+  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+
+/* Premium photo placeholder */
+.placeholder-frame {
+  position: relative;
+  border: 1px solid rgba(186, 230, 253, 0.14);
+  background: linear-gradient(
+    160deg,
+    rgba(255, 255, 255, 0.04),
+    rgba(255, 255, 255, 0.01)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+  transition:
+    border-color 0.4s ease,
+    transform 0.4s ease;
+}
+.placeholder-frame:hover {
+  border-color: rgba(56, 189, 248, 0.35);
+}
+.placeholder-frame:hover .placeholder-icon {
+  transform: scale(1.08) rotate(-2deg);
+  opacity: 0.9;
+}
+.placeholder-icon {
+  transition:
+    transform 0.4s ease,
+    opacity 0.4s ease;
+  opacity: 0.55;
+}
+
+/* Muted tech tag — toned down from the solid azure fill used elsewhere */
+.tag-muted {
+  background: rgba(186, 230, 253, 0.04);
+  border: 1px solid rgba(186, 230, 253, 0.14);
+  color: var(--ice);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    transition: none !important;
+  }
+}
