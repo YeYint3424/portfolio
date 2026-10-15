@@ -60,7 +60,7 @@ export default function About() {
           <Navbar />
 
           <section id="about" className="relative px-6 py-24">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <Reveal>
                 <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
                   About
@@ -108,7 +108,7 @@ export default function About() {
           <TechEvolution />
 
           {/* <section className="relative px-6 py-24">
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto">
               <div className="flex flex-col gap-5">
                 <Reveal delay={100}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-5">

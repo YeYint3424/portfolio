@@ -1,3 +1,9 @@
+import type { StaticImageData } from "next/image";
+import pfcPhoto from "@/assets/imgs/pfc.jpg";
+import jwdPhoto from "@/assets/imgs/jwd.jpg";
+import ojtPhoto from "@/assets/imgs/ojt.jpg";
+import aceOjtPhoto from "@/assets/imgs/ace-ojt.jpg";
+
 export interface JourneyMilestone {
   id: string;
   range: string;
@@ -8,7 +14,7 @@ export interface JourneyMilestone {
   focus: string[];
   projectSlugs?: string[];
   achievement?: string;
-  photoLabel: string;
+  photo?: StaticImageData;
 }
 
 export interface ProjectFeatureGroup {
@@ -48,7 +54,7 @@ const journey: JourneyMilestone[] = [
       "Problem solving",
       "Basic software development concepts",
     ],
-    photoLabel: "PERSONAL PHOTO — APRIL 2022",
+    photo: pfcPhoto,
   },
   {
     id: "advanced-java",
@@ -65,7 +71,7 @@ const journey: JourneyMilestone[] = [
       "End-to-end application development",
     ],
     projectSlugs: ["entrance-x"],
-    photoLabel: "PERSONAL PHOTO — JAVA TRAINING",
+    photo: jwdPhoto,
   },
   {
     id: "java-ojt",
@@ -82,7 +88,7 @@ const journey: JourneyMilestone[] = [
     ],
     projectSlugs: ["students-management-system", "jroms"],
     achievement: "Project Winner — JROMS",
-    photoLabel: "PERSONAL PHOTO — JROMS TEAM",
+    photo: ojtPhoto,
   },
   {
     id: "react-ojt",
@@ -99,7 +105,7 @@ const journey: JourneyMilestone[] = [
       "API integration",
       "Reusable UI components",
     ],
-    photoLabel: "PERSONAL PHOTO — REACT TRAINING",
+    photo: aceOjtPhoto,
   },
   {
     id: "ace-data-systems",
@@ -116,7 +122,6 @@ const journey: JourneyMilestone[] = [
       "Performance & accessibility optimization",
     ],
     projectSlugs: ["aqme-insurance"],
-    photoLabel: "PERSONAL PHOTO — ACE DATA SYSTEMS",
   },
   {
     id: "d3-sg",
@@ -133,7 +138,6 @@ const journey: JourneyMilestone[] = [
       "Full-stack contribution (AGB Fiber CRM)",
     ],
     projectSlugs: ["axurance-insurance", "agb-fiber-crm"],
-    photoLabel: "PERSONAL PHOTO — D3-SG",
   },
 ];
 
@@ -349,8 +353,15 @@ const projects: Project[] = [
     slug: "agb-fiber-crm",
     title: "AGB Fiber Internet Tachileik (CRM)",
     team: null,
-    period: "November 2025 – December 2025",
-    stack: ["Java", "Spring Boot", "Thymeleaf", "HTML", "CSS", "JavaScript", "Tailwind CSS"],
+    period: "November 2025 – December 2025",    stack: [
+      "Java",
+      "Spring Boot",
+      "Thymeleaf",
+      "HTML",
+      "CSS",
+      "JavaScript",
+      "Tailwind CSS",
+    ],
     summary:
       "A CRM system for AGB Fiber Internet — my first full-stack contribution, spanning both backend and UI.",
     overview: "A CRM system built for AGB Fiber Internet Tachileik.",
@@ -368,7 +379,7 @@ export const data = {
   phone: "+959 900 000 000",
   address: "Ho Chi Minh City, Vietnam",
   objective:
-    "A Frontend Engineer with hands-on experience building responsive, user-focused web interfaces using React.js and Next.js since January 2024. Skilled at solving problems and collaborating within teams, with a passion for crafting clean, performant user experiences and a growing interest in extending that skill set to React Native for cross-platform mobile development.",
+    "Frontend Engineer building responsive, user-focused web apps with React.js and Next.js since 2024. A collaborative problem-solver passionate about clean, performant UX, now expanding into React Native for cross-platform mobile development.",
 
   education: {
     major: "Information Technology",

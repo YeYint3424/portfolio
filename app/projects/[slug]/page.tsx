@@ -86,7 +86,7 @@ export default function ProjectDetail({
         <Navbar />
 
         <article className="relative px-6 pt-32 pb-24">
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Reveal>
               <Link
                 href="/projects"

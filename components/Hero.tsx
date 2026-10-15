@@ -9,9 +9,9 @@ export default function Hero() {
     <Reveal>
       <section
         id="about"
-        className="max-w-6xl min-h-screen flex justify-evenly items-center w-full mx-auto mt-14 md:mt-auto"
+        className="max-w-7xl min-h-screen flex justify-evenly items-center w-full mx-auto mt-14 md:mt-auto"
       >
-        <div className="max-w-6xl w-full flex flex-col md:flex-row justify-evenly items-center gap-12">
+        <div className="max-w-7xl w-full flex flex-col md:flex-row justify-evenly items-center gap-12">
           {/* Avatar */}
           <div className="flex-shrink-0 relative w-60 h-60 float-anim">
             <div className="avatar-glow" />

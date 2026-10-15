@@ -2,10 +2,10 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useReducedMotion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { Trophy } from "lucide-react";
 import { data, type JourneyMilestone } from "@/data";
-import PhotoPlaceholder from "./PhotoPlaceholder";
 import Reveal from "./Reveal";
 
 function projectTitle(slug: string) {
@@ -22,7 +22,7 @@ export default function TechJourney() {
 
   return (
     <section id="tech-journey" className="relative px-6 py-24">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <Reveal>
           <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
             The Story
@@ -150,7 +150,16 @@ function MilestoneCard({
           </div>
         )}
 
-        <PhotoPlaceholder label={milestone.photoLabel} className="mb-5" />
+        {milestone.photo && (
+          <div className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-5">
+            <Image
+              src={milestone.photo}
+              alt={milestone.title}
+              fill
+              className="object-cover"
+            />
+          </div>
+        )}
 
         {milestone.projectSlugs && milestone.projectSlugs.length > 0 && (
           <div className="flex flex-wrap gap-x-4 gap-y-2">

@@ -42,8 +42,10 @@ function StackSection({ project, index }: { project: Project; index: number }) {
   return (
     <div ref={ref} className="relative h-auto md:h-[140vh] px-6">
       <motion.div
-        style={reduceMotion ? undefined : { scale, opacity, y, zIndex: 10 + index }}
-        className="stack-card relative md:sticky md:top-24 max-w-4xl mx-auto glass-panel rounded-3xl p-8 sm:p-10 mb-10 md:mb-0"
+        style={
+          reduceMotion ? undefined : { scale, opacity, y, zIndex: 10 + index }
+        }
+        className="stack-card relative md:sticky md:top-24 max-w-7xl mx-auto glass-panel rounded-3xl p-8 sm:p-10 mb-10 md:mb-0"
       >
         <div className="flex items-start justify-between gap-4 mb-6">
           <span className="text-sky/25 font-sans font-extrabold text-5xl sm:text-6xl leading-none select-none">
@@ -60,7 +62,9 @@ function StackSection({ project, index }: { project: Project; index: number }) {
         >
           {project.title}
         </h3>
-        {project.team && <p className="text-sky/70 text-xs mb-4">{project.team}</p>}
+        {project.team && (
+          <p className="text-sky/70 text-xs mb-4">{project.team}</p>
+        )}
 
         <p className="text-frost/65 text-sm leading-7 mb-6 max-w-2xl">
           {project.summary}

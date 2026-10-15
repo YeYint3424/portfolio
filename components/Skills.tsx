@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 export default function Skills() {
   return (
     <section id="skills" className="relative px-6 py-24">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <Reveal>
           <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
             Technical Arsenal

@@ -57,7 +57,7 @@ export default function ProjectsPage() {
         <Navbar />
 
         <section className="relative px-6 pt-32 pb-16">
-          <div className="max-w-6xl mx-auto">
+          <div className="max-w-7xl mx-auto">
             <Reveal>
               <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
                 Work &amp; Experience
