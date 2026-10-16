@@ -4,14 +4,16 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Download, MapPin } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, MapPin, Box, User } from "lucide-react";
 import profile from "@/assets/imgs/yeyint-light.jpg";
 import { data } from "@/data";
 import MagneticButton from "./MagneticButton";
 import SectionTransition from "./SectionTransition";
+import Hero3DScene from "./Hero3DScene";
 
 export default function Hero() {
   const cardRef = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState<"3d" | "profile">("3d");
   const [rotate, setRotate] = useState({ x: 0, y: 0 });
   const [glare, setGlare] = useState({ x: 50, y: 50, opacity: 0 });
   const reduceMotion = useReducedMotion();
@@ -117,57 +119,85 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: 3D Perspective Tilt Card */}
-        <div className="lg:col-span-5 flex justify-center lg:justify-end">
-          <motion.div
-            ref={cardRef}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseLeave}
-            style={{
-              transformStyle: "preserve-3d",
-              transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
-              transition: "transform 0.15s ease-out",
-            }}
-            className="relative w-72 sm:w-80 h-[380px] rounded-3xl p-3 glass-panel border border-sky/20 shadow-[0_20px_50px_rgba(3,105,161,0.2)] group cursor-pointer"
-          >
-            {/* Dynamic Glare Overlay */}
-            <div
-              className="absolute inset-0 rounded-3xl pointer-events-none transition-opacity duration-300"
-              style={{
-                opacity: glare.opacity,
-                background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(56,189,248,0.35) 0%, transparent 65%)`,
-              }}
-            />
+        {/* Right Column: React Three Fiber 3D Scene + Profile Switcher */}
+        <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center gap-3">
+          {/* Mode Switcher */}
+          <div className="flex items-center gap-1 p-1 bg-midnight/90 border border-sky/20 rounded-xl self-center lg:self-end">
+            <button
+              onClick={() => setActiveTab("3d")}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                activeTab === "3d"
+                  ? "bg-sky/20 text-white border border-sky/30 shadow-[0_0_12px_rgba(56,189,248,0.25)]"
+                  : "text-frost/60 hover:text-white"
+              }`}
+            >
+              <Box className="w-3.5 h-3.5 text-sky" />
+              <span>3D Artifact</span>
+            </button>
+            <button
+              onClick={() => setActiveTab("profile")}
+              className={`inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                activeTab === "profile"
+                  ? "bg-sky/20 text-white border border-sky/30 shadow-[0_0_12px_rgba(56,189,248,0.25)]"
+                  : "text-frost/60 hover:text-white"
+              }`}
+            >
+              <User className="w-3.5 h-3.5 text-sky" />
+              <span>Profile Card</span>
+            </button>
+          </div>
 
-            {/* Inner Portrait Container */}
-            <div className="relative w-full h-full rounded-2xl overflow-hidden bg-midnight/90 border border-sky/10">
-              <Image
-                src={profile}
-                alt="Ye Yint Myint Myat - Frontend Developer"
-                fill
-                priority
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+          {activeTab === "3d" ? (
+            <div className="w-full max-w-sm sm:max-w-md">
+              <Hero3DScene />
+            </div>
+          ) : (
+            <motion.div
+              ref={cardRef}
+              onMouseMove={handleMouseMove}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                transformStyle: "preserve-3d",
+                transform: `perspective(1000px) rotateX(${rotate.x}deg) rotateY(${rotate.y}deg)`,
+                transition: "transform 0.15s ease-out",
+              }}
+              className="relative w-72 sm:w-80 h-[380px] rounded-3xl p-3 glass-panel border border-sky/20 shadow-[0_20px_50px_rgba(3,105,161,0.2)] group cursor-pointer"
+            >
+              <div
+                className="absolute inset-0 rounded-3xl pointer-events-none transition-opacity duration-300"
+                style={{
+                  opacity: glare.opacity,
+                  background: `radial-gradient(circle at ${glare.x}% ${glare.y}%, rgba(56,189,248,0.35) 0%, transparent 65%)`,
+                }}
               />
 
-              {/* Contrast Scrim for Text Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/30 to-transparent" />
+              <div className="relative w-full h-full rounded-2xl overflow-hidden bg-midnight/90 border border-sky/10">
+                <Image
+                  src={profile}
+                  alt="Ye Yint Myint Myat - Frontend Developer"
+                  fill
+                  priority
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
 
-              {/* Bottom Card Identity Details */}
-              <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1 z-10">
-                <span className="text-[0.7rem] uppercase tracking-widest text-sky font-semibold">
-                  Frontend Engineer
-                </span>
-                <p className="text-white font-sans font-bold text-lg leading-tight">
-                  {data.name}
-                </p>
-                <div className="flex items-center gap-2 text-xs text-frost/60 mt-0.5">
-                  <span>Van Lang Saigon IT</span>
-                  <span aria-hidden="true">·</span>
-                  <span>D3-SG Outsourcing</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-midnight via-midnight/30 to-transparent" />
+
+                <div className="absolute bottom-4 left-4 right-4 flex flex-col gap-1 z-10">
+                  <span className="text-[0.7rem] uppercase tracking-widest text-sky font-semibold">
+                    Frontend Engineer
+                  </span>
+                  <p className="text-white font-sans font-bold text-lg leading-tight">
+                    {data.name}
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-frost/60 mt-0.5">
+                    <span>Van Lang Saigon IT</span>
+                    <span aria-hidden="true">·</span>
+                    <span>D3-SG Outsourcing</span>
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          )}
         </div>
       </div>
 

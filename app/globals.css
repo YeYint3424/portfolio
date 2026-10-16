@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Syne:wght@400..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  --font-syne: 'Syne', system-ui, -apple-system, sans-serif;
+  --font-dm: 'DM Sans', system-ui, -apple-system, sans-serif;
   --frost: #e0f2fe;
   --ice: #bae6fd;
   --sky: #38bdf8;
@@ -19,6 +23,7 @@ html {
 body {
   background: var(--midnight);
   color: var(--frost);
+  font-family: var(--font-dm);
   overflow-x: hidden;
 }
 
