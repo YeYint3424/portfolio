@@ -6,10 +6,16 @@ import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import SectionDivider from "@/components/SectionDivider";
+import PageTransition from "@/components/PageTransition";
+import IntroAnimation from "@/components/IntroAnimation";
 
 export default function Home() {
   return (
     <>
+      {/* Initial Page Entrance Animation */}
+      <IntroAnimation />
+
       {/* Fixed canvas snow layer */}
       <Snow />
 
@@ -57,23 +63,25 @@ export default function Home() {
       {/* Actual content sits above z-index 2 */}
       <div className="relative" style={{ zIndex: 2 }}>
         <Navbar />
-        <div className="relative px-6">
-          <Hero />
-        </div>
+        <PageTransition>
+          <div className="relative px-6">
+            <Hero />
+          </div>
 
-        <div className="ice-divider" />
-        <Skills />
+          <SectionDivider />
+          <Projects />
 
-        <div className="ice-divider" />
-        <Projects />
+          <SectionDivider />
+          <Skills />
 
-        <div className="ice-divider" />
-        <Certifications />
+          <SectionDivider />
+          <Certifications />
 
-        <div className="ice-divider" />
-        <Contact />
+          <SectionDivider />
+          <Contact />
 
-        <Footer />
+          <Footer />
+        </PageTransition>
       </div>
     </>
   );

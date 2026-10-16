@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 
-interface Flake {
+interface Particle {
   x: number;
   y: number;
   r: number;
@@ -10,6 +10,8 @@ interface Flake {
   drift: number;
   opacity: number;
   twinkle: number;
+  vx: number;
+  vy: number;
 }
 
 export default function Snow() {
@@ -23,65 +25,112 @@ export default function Snow() {
 
     let W = (canvas.width = window.innerWidth);
     let H = (canvas.height = window.innerHeight);
-    let flakes: Flake[] = [];
+    let particles: Particle[] = [];
     let animId: number;
+    let mouse = { x: -1000, y: -1000, active: false };
 
-    function initFlakes() {
-      flakes = [];
-      const count = Math.min(Math.floor(W / 7), 180);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    function initParticles() {
+      particles = [];
+      const count = prefersReducedMotion ? 40 : Math.min(Math.floor(W / 9), 140);
       for (let i = 0; i < count; i++) {
-        flakes.push({
+        particles.push({
           x: Math.random() * W,
           y: Math.random() * H,
-          r: Math.random() * 2.5 + 0.4,
-          speed: Math.random() * 0.55 + 0.15,
-          drift: (Math.random() - 0.5) * 0.25,
-          opacity: Math.random() * 0.55 + 0.2,
+          r: Math.random() * 2.2 + 0.5,
+          speed: Math.random() * 0.45 + 0.15,
+          drift: (Math.random() - 0.5) * 0.2,
+          opacity: Math.random() * 0.45 + 0.15,
           twinkle: Math.random() * Math.PI * 2,
+          vx: 0,
+          vy: 0,
         });
       }
     }
 
+    function onMouseMove(e: MouseEvent) {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+    }
+
+    function onMouseLeave() {
+      mouse.active = false;
+    }
+
     function draw() {
       ctx!.clearRect(0, 0, W, H);
-      for (const f of flakes) {
-        f.twinkle += 0.018;
-        const pulse = Math.sin(f.twinkle) * 0.15 + 0.85;
+
+      for (const p of particles) {
+        p.twinkle += 0.015;
+        const pulse = Math.sin(p.twinkle) * 0.15 + 0.85;
+
+        // Kinetic mouse repulsion
+        if (mouse.active && !prefersReducedMotion) {
+          const dx = p.x - mouse.x;
+          const dy = p.y - mouse.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          const maxDist = 120;
+          if (dist < maxDist && dist > 0) {
+            const force = (1 - dist / maxDist) * 1.5;
+            p.vx += (dx / dist) * force;
+            p.vy += (dy / dist) * force;
+          }
+        }
+
+        // Apply friction
+        p.vx *= 0.92;
+        p.vy *= 0.92;
+
+        p.x += p.drift + p.vx;
+        p.y += p.speed + p.vy;
+
+        // Wrap around boundaries
+        if (p.y > H + 8) {
+          p.y = -8;
+          p.x = Math.random() * W;
+        }
+        if (p.x > W + 8) p.x = -8;
+        if (p.x < -8) p.x = W + 8;
+
         ctx!.beginPath();
-        ctx!.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-        ctx!.fillStyle = `rgba(186,230,253,${f.opacity * pulse})`;
-        ctx!.shadowColor = "rgba(56,189,248,0.9)";
-        ctx!.shadowBlur = f.r * 4;
+        ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx!.fillStyle = `rgba(186, 230, 253, ${p.opacity * pulse})`;
+        ctx!.shadowColor = "rgba(56, 189, 248, 0.6)";
+        ctx!.shadowBlur = p.r * 3;
         ctx!.fill();
         ctx!.shadowBlur = 0;
-
-        f.y += f.speed;
-        f.x += f.drift;
-        if (f.y > H + 5) { f.y = -5; f.x = Math.random() * W; }
-        if (f.x > W + 5) f.x = -5;
-        if (f.x < -5) f.x = W + 5;
       }
+
       animId = requestAnimationFrame(draw);
     }
 
     function onResize() {
       W = canvas!.width = window.innerWidth;
       H = canvas!.height = window.innerHeight;
-      initFlakes();
+      initParticles();
     }
 
-    initFlakes();
+    initParticles();
     draw();
+
     window.addEventListener("resize", onResize);
+    window.addEventListener("mousemove", onMouseMove);
+    document.addEventListener("mouseleave", onMouseLeave);
+
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener("mousemove", onMouseMove);
+      document.removeEventListener("mouseleave", onMouseLeave);
     };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       className="fixed inset-0 w-full h-full pointer-events-none"
       style={{ zIndex: 0 }}
     />

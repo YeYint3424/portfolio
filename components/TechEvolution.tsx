@@ -1,4 +1,7 @@
+"use client";
+
 import Reveal from "./Reveal";
+import SectionTransition from "./SectionTransition";
 
 const EVOLUTION = [
   { year: "2022", label: "Programming Fundamentals" },
@@ -10,8 +13,8 @@ const EVOLUTION = [
 
 export default function TechEvolution() {
   return (
-    <section className="relative px-6 py-24">
-      <div className="max-w-7xl mx-auto">
+    <SectionTransition className="relative px-6 py-24">
+      <div className="max-w-3xl mx-auto">
         <Reveal>
           <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2 text-center">
             Technology Evolution
@@ -30,7 +33,7 @@ export default function TechEvolution() {
           <div className="timeline-track absolute top-2 bottom-2 left-1/2 -translate-x-1/2" />
 
           {EVOLUTION.map((node, i) => (
-            <Reveal key={node.label} delay={i * 100} className="w-full">
+            <Reveal key={node.label} delay={i * 90} direction="up" distance={16} className="w-full">
               <div className="relative flex flex-col items-center text-center py-5">
                 <span className="timeline-dot active relative z-10 w-2.5 h-2.5 mb-3" />
                 <span className="text-sky/60 text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-1">
@@ -44,6 +47,6 @@ export default function TechEvolution() {
           ))}
         </div>
       </div>
-    </section>
+    </SectionTransition>
   );
 }

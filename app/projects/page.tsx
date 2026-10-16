@@ -1,9 +1,13 @@
 "use client";
+
 import Snow from "@/components/Snow";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
 import ProjectsArchive from "@/components/ProjectsArchive";
 import Footer from "@/components/Footer";
+import SectionTransition from "@/components/SectionTransition";
+import SectionDivider from "@/components/SectionDivider";
+import PageTransition from "@/components/PageTransition";
 
 export default function ProjectsPage() {
   return (
@@ -56,34 +60,39 @@ export default function ProjectsPage() {
       <div className="relative" style={{ zIndex: 2 }}>
         <Navbar />
 
-        <section className="relative px-6 pt-32 pb-16">
-          <div className="max-w-7xl mx-auto">
-            <Reveal>
-              <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
-                Work &amp; Experience
-              </p>
-            </Reveal>
-            <Reveal delay={100}>
-              <h1
-                className="font-sans font-extrabold text-white tracking-tight mb-5"
-                style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)" }}
-              >
-                The Technology Archive
-              </h1>
-            </Reveal>
-            <Reveal delay={200}>
-              <p className="text-frost/60 text-sm leading-7 max-w-2xl">
-                These are the real projects that represent each stage of my
-                development journey — scroll through to explore them, in the
-                order they happened.
-              </p>
-            </Reveal>
-          </div>
-        </section>
+        <PageTransition>
+          <SectionTransition className="relative px-6 pt-32 pb-16">
+            <div className="max-w-6xl mx-auto">
+              <Reveal>
+                <p className="text-sky text-xs font-bold tracking-[0.2em] uppercase mb-2">
+                  Work &amp; Experience
+                </p>
+              </Reveal>
+              <Reveal delay={100}>
+                <h1
+                  className="font-sans font-extrabold text-white tracking-tight mb-5"
+                  style={{ fontSize: "clamp(1.8rem, 5vw, 3rem)" }}
+                >
+                  The Technology Archive
+                </h1>
+              </Reveal>
+              <Reveal delay={200}>
+                <p className="text-frost/60 text-sm sm:text-base leading-7 max-w-2xl">
+                  These are the real projects that represent each stage of my
+                  development journey — scroll through to explore them, in the
+                  order they happened.
+                </p>
+              </Reveal>
+            </div>
+          </SectionTransition>
 
-        <ProjectsArchive />
+          <SectionDivider />
 
-        <Footer />
+          <ProjectsArchive />
+
+          <SectionDivider variant="footer" />
+          <Footer />
+        </PageTransition>
       </div>
     </>
   );
