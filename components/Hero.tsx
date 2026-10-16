@@ -3,13 +3,28 @@
 import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import { motion, useReducedMotion } from "framer-motion";
-import { ArrowDown, ArrowUpRight, Download, MapPin, Box, User } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Download, MapPin, Box, User, Sparkles } from "lucide-react";
 import profile from "@/assets/imgs/yeyint-light.jpg";
 import { data } from "@/data";
 import MagneticButton from "./MagneticButton";
 import SectionTransition from "./SectionTransition";
-import Hero3DScene from "./Hero3DScene";
+
+// Lazy-load the new Hero3D component with SSR disabled for 0% initial load penalty
+const Hero3D = dynamic(() => import("./Hero3D"), {
+  ssr: false,
+  loading: () => (
+    <div className="w-full h-full min-h-[360px] rounded-3xl border border-sky/20 bg-midnight/80 flex flex-col items-center justify-center p-6 text-center">
+      <div className="w-12 h-12 rounded-full border border-sky/30 bg-sky/10 flex items-center justify-center text-sky animate-pulse mb-3">
+        <Sparkles className="w-5 h-5" />
+      </div>
+      <p className="text-xs font-mono text-sky tracking-wider uppercase">
+        Initializing 3D Node...
+      </p>
+    </div>
+  ),
+});
 
 export default function Hero() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -119,7 +134,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: React Three Fiber 3D Scene + Profile Switcher */}
+        {/* Right Column: React Three Fiber 3D Scene (Hero3D) + Profile Switcher */}
         <div className="lg:col-span-5 flex flex-col items-center lg:items-end justify-center gap-3">
           {/* Mode Switcher */}
           <div className="flex items-center gap-1 p-1 bg-midnight/90 border border-sky/20 rounded-xl self-center lg:self-end">
@@ -132,7 +147,7 @@ export default function Hero() {
               }`}
             >
               <Box className="w-3.5 h-3.5 text-sky" />
-              <span>3D Artifact</span>
+              <span>3D Software Node</span>
             </button>
             <button
               onClick={() => setActiveTab("profile")}
@@ -148,8 +163,8 @@ export default function Hero() {
           </div>
 
           {activeTab === "3d" ? (
-            <div className="w-full max-w-sm sm:max-w-md">
-              <Hero3DScene />
+            <div className="w-full max-w-sm sm:max-w-md h-[360px] sm:h-[420px] rounded-3xl p-2 glass-panel border border-sky/20 shadow-[0_20px_50px_rgba(3,105,161,0.2)] overflow-hidden">
+              <Hero3D />
             </div>
           ) : (
             <motion.div
@@ -191,7 +206,7 @@ export default function Hero() {
                   </p>
                   <div className="flex items-center gap-2 text-xs text-frost/60 mt-0.5">
                     <span>Van Lang Saigon IT</span>
-                    <span aria-hidden="true">·</span>
+                    <span aria-hidden="true" className="text-frost/30">·</span>
                     <span>D3-SG Outsourcing</span>
                   </div>
                 </div>
